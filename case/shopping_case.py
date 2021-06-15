@@ -24,7 +24,7 @@ class Shopping_Case(unittest.TestCase):
     def test1_shopping_case(self):
         wake()
         # 页面截图
-        Tool().loggin()
+        Tool().test1loggin()
         StartAPP().clearapp()
         # 初始化设备
         StartAPP().test1_start()
@@ -47,7 +47,7 @@ class Shopping_Case(unittest.TestCase):
         Order().test2_amount()
         Order().test3_select_payment_type()
         # 生成html报告
-        Tool().loggin_html()
+        Tool().test2loggin_html()
 
 
 if __name__ == "__main__":

@@ -4,8 +4,6 @@ __title__ = "内容闯关"
 
 import time
 import unittest
-
-
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 poco = AndroidUiautomationPoco()
 import logging
@@ -18,6 +16,7 @@ from page.LOGIN_Page.start_page import StartAPP
 
 class Play(unittest.TestCase):
 
+# 闯关赢大奖
     def testfree(self):
         StartAPP().stopapp()
         UserLogin().test1_login("19901679570","123456")

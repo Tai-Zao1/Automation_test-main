@@ -1,21 +1,25 @@
 # -*- encoding=utf8 -*-
 __author__ = "孙志宇"
 __title__ = "微信支付流程"
-
 import unittest
-from airtest.core.api import wake
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 import logging
+from airtest.core.api import wake
+from tool.Generate_log import Tool
+logger = logging.getLogger("airtest")
+logger.setLevel(logging.ERROR)
+poco = AndroidUiautomationPoco()
+
+
+
+from page.WX_Page.WX_page import weixin_page
 from page.LOGIN_Page.start_page import StartAPP
 from page.LOGIN_Page.login_page import UserLogin
 from page.ClassiFication_Page.GoodThing_page import GoodThing
 from page.Card_Page.shoppingcard_page import ShoppingCard
 from page.TheOrder_Page.order_page import Order
-from tool.Generate_log import Tool
-from page.WX_Page.WX_page import weixin_page
-logger = logging.getLogger("airtest")
-logger.setLevel(logging.ERROR)
-poco = AndroidUiautomationPoco()
+
+
 
 
 class wx_pay_case(unittest.TestCase):
@@ -24,7 +28,7 @@ class wx_pay_case(unittest.TestCase):
     def test1_wx_pay(self):
         wake()
         # 页面截图
-        Tool().loggin()
+        Tool().test1loggin()
         # 初始化设备
         StartAPP().clearapp()
         StartAPP().test1_start()
@@ -50,7 +54,7 @@ class wx_pay_case(unittest.TestCase):
         #输入微信支付密码
         weixin_page().test1_wxpay('112233')
         #生成测试报告
-        Tool().loggin_html()
+        Tool().test2loggin_html()
 
 
 if __name__ =="__main__":
