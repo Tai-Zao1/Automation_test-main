@@ -22,6 +22,7 @@ class HomePage(unittest.TestCase):
     # 刷新列表，找到某个活动并进入
 
     def test1swipeFB(self, Fbname ,Type): # type= 1：大牌免费拿，2：指间剧场or短视频
+        time.sleep(2)
         while len(poco(text="可能感兴趣的人")) != 1:
             swipe([550, 400], [550, 1700])
         else:

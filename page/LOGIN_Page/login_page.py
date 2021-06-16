@@ -18,7 +18,7 @@ class UserLogin(unittest.TestCase):
 
     # 登陆
     def test1_login(self, username, password):
-        time.sleep(1)
+        time.sleep(3)
         if len(self.poco(name='com.devkeep.mall:id/login')) >= 1:
             lg = self.poco(name='com.devkeep.mall:id/login')
             lg.click()
