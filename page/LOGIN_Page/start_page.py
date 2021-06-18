@@ -4,16 +4,17 @@ __title__ = "打开APP并且进入首页"
 
 from airtest.core.api import *
 import unittest
-from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-poco = AndroidUiautomationPoco()
-import logging
-logger = logging.getLogger("airtest")
-logger.setLevel(logging.ERROR)
+
+# import logging
+# logger = logging.getLogger("airtest")
+# logger.setLevel(logging.ERROR)
 
 
 
 class StartAPP(unittest.TestCase):
     def __init__(self, *args, **kwargs):
+        from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+        poco = AndroidUiautomationPoco()
         unittest.TestCase.__init__(self, *args, **kwargs)
         self.poco = poco
 

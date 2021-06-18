@@ -5,15 +5,16 @@ __title__ = "游戏化内容"
 
 import time
 import unittest
-from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 
-poco = AndroidUiautomationPoco()
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
 
 class Theater(unittest.TestCase):
     def __init__(self):
+        from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+
+        poco = AndroidUiautomationPoco()
         unittest.TestCase.__init__(self)
         self.poco = poco
 
@@ -37,7 +38,7 @@ class Theater(unittest.TestCase):
                     ee.click()
                     break
                 elif len(self.poco(name="恭喜获得宝箱，点击开启")):
-                    ss = poco("android:id/content").child("android.widget.FrameLayout").child(
+                    ss = self.poco("android:id/content").child("android.widget.FrameLayout").child(
                         "android.widget.FrameLayout").child("android.view.View").child("android.view.View").child(
                         "android.view.View").child("android.view.View").child("android.widget.ImageView")[1]
                     ss.click()
@@ -47,11 +48,11 @@ class Theater(unittest.TestCase):
 
     # 闯关赢大奖活动
     def test2_answer(self, answers):
-        complete = poco(nameMatches="完成.*?")
-        again = poco(nameMatches="重新挑战.*?")
+        complete = self.poco(nameMatches="完成.*?")
+        again = self.poco(nameMatches="重新挑战.*?")
         while len(complete) != 1 and len(again) != 1:
-            answer = poco(nameMatches=answers + ".*?")
-            next_title = poco(nameMatches="下一题.*?")
+            answer = self.poco(nameMatches=answers + ".*?")
+            next_title = self.poco(nameMatches="下一题.*?")
             if len(answer) != 0:
                 answer.click()
             elif len(next_title) == 1:

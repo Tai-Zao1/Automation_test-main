@@ -3,17 +3,18 @@ __author__ = "孙志宇"
 __title__ = "确认订单页面"
 
 import unittest
-from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+
 from airtest.core.api import *
 import logging
 from page.My_Page.address_page import Address
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
-poco = AndroidUiautomationPoco()
 
 
 class Order(unittest.TestCase):
     def __init__(self, *args, **kwargs):
+        from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+        poco = AndroidUiautomationPoco()
         unittest.TestCase.__init__(self, *args, **kwargs)
         self.poco = poco
 

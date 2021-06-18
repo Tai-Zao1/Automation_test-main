@@ -3,16 +3,18 @@ __author__ = "孙志宇"
 __title__ = "好物页面"
 
 import unittest
-from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+
 import logging
 from page.Card_Page.shoppingcard_page import ShoppingCard
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
-poco = AndroidUiautomationPoco()
+
 
 
 class GoodThing(unittest.TestCase):
     def __init__(self, *args, **kwargs):
+        from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+        poco = AndroidUiautomationPoco()
         unittest.TestCase.__init__(self, *args, **kwargs)
         self.poco = poco
 

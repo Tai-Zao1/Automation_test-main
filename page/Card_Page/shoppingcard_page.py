@@ -4,18 +4,20 @@ __title__ = "购物车列表"
 
 from airtest.core.api import *
 import unittest
-from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+
 from page.TheOrder_Page.order_page import Order
 import logging
 
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
-poco = AndroidUiautomationPoco()
+
 
 
 class ShoppingCard(unittest.TestCase):
     def __init__(self, *args, **kwargs):
+        from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+        poco = AndroidUiautomationPoco()
         unittest.TestCase.__init__(self, *args, **kwargs)
         self.poco = poco
 

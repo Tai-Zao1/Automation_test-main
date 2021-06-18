@@ -4,8 +4,7 @@ __title__ = "登陆流程"
 
 import time
 import unittest
-from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-poco = AndroidUiautomationPoco()
+
 import logging
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
@@ -13,6 +12,8 @@ logger.setLevel(logging.ERROR)
 
 class UserLogin(unittest.TestCase):
     def __init__(self, *args, **kwargs):
+        from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+        poco = AndroidUiautomationPoco()
         unittest.TestCase.__init__(self, *args, **kwargs)
         self.poco = poco
 

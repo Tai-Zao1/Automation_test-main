@@ -3,7 +3,7 @@ __author__ = "孙志宇"
 __title__ = "收货地址页面"
 
 import unittest
-from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+
 import logging
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
@@ -13,6 +13,7 @@ logger.setLevel(logging.ERROR)
 class Address(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         unittest.TestCase.__init__(self, *args, **kwargs)
+        from poco.drivers.android.uiautomation import AndroidUiautomationPoco
         poco = AndroidUiautomationPoco()
         self.poco = poco
 
