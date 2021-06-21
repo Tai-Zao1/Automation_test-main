@@ -25,10 +25,11 @@ from page.TheOrder_Page.order_page import Order
 class wx_pay_case(unittest.TestCase):
 
 
-    def test1_wx_pay(self):
-        wake()
+    def test1_wx_pay(devices):
+
+        Tool().test1loggin(devices)
         # 页面截图
-        Tool().test1loggin()
+        wake()
         # 初始化设备
         StartAPP().clearapp()
         StartAPP().test1_start()
@@ -54,8 +55,10 @@ class wx_pay_case(unittest.TestCase):
         #输入微信支付密码
         weixin_page().test1_wxpay('112233')
         #生成测试报告
-        Tool().test2loggin_html()
+        # Tool().test2loggin_html()
 
 
 if __name__ =="__main__":
-    unittest.main()
+    from tool.phone_devices import devicestest
+
+    devicestest().parallel(wx_pay_case.test1_wx_pay())

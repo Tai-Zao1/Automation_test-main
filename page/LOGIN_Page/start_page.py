@@ -12,10 +12,10 @@ import unittest
 
 
 class StartAPP(unittest.TestCase):
-    def __init__(self, *args, **kwargs):
+    def __init__(self):
         from poco.drivers.android.uiautomation import AndroidUiautomationPoco
         poco = AndroidUiautomationPoco()
-        unittest.TestCase.__init__(self, *args, **kwargs)
+        unittest.TestCase.__init__(self)
         self.poco = poco
 
     # 杀死并启动APP

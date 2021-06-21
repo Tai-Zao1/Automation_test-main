@@ -21,10 +21,12 @@ poco = AndroidUiautomationPoco()
 class Shopping_Case(unittest.TestCase):
 
 
-    def test1_shopping_case(self):
-        wake()
+    def test1_shopping_case(devices):
+
+
+        Tool().test1loggin(devices)
         # 页面截图
-        Tool().test1loggin()
+        wake()
         StartAPP().clearapp()
         # 初始化设备
         StartAPP().test1_start()
@@ -47,8 +49,10 @@ class Shopping_Case(unittest.TestCase):
         Order().test2_amount()
         Order().test3_select_payment_type()
         # 生成html报告
-        Tool().test2loggin_html()
+        # Tool().test2loggin_html()
 
 
 if __name__ == "__main__":
-    unittest.main()
+    from tool.phone_devices import devicestest
+    devicestest().parallel(Shopping_Case.test1_shopping_case)
+

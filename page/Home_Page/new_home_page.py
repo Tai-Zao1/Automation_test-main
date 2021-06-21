@@ -12,10 +12,10 @@ logger.setLevel(logging.ERROR)
 
 class HomePage(unittest.TestCase):
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self):
         from poco.drivers.android.uiautomation import AndroidUiautomationPoco
         poco = AndroidUiautomationPoco()
-        unittest.TestCase.__init__(self, *args, **kwargs)
+        unittest.TestCase.__init__(self)
         self.poco = poco
 
     # 刷新列表，找到某个活动并进入
@@ -33,7 +33,7 @@ class HomePage(unittest.TestCase):
             print("正在滑动找到该活动")
         if Type  == 1 :
             print("---------------找到该大牌活动---------------")
-            self.poco(name="com.devkeep.mall:id/include_type4")[-1].click()
+            self.poco(nameMatches="com.devkeep.mall:id/include_type4.*?")[-1].click()
         elif Type == 2 :
             print("---------------找到该指间剧场or短视频活动---------------")
             self.poco(name="com.devkeep.mall:id/iv_advert_interactive")[-1].click()
