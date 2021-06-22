@@ -44,7 +44,14 @@ class StartAPP(unittest.TestCase):
         # 点击进入按钮
         # self.poco(name='com.devkeep.mall:id/btn_enter').click()
         # 确认系统权限
-        self.poco(nameMatches='.*?permission_allow_button').click()
+        MI_5s = self.poco(name= "android:id/button1")
+        MIX2 =  self.poco(nameMatches='.*?permission_allow_button')
+        if len(MI_5s) == 1:
+            MI_5s.click()
+        elif len(MIX2) == 1:
+            MIX2.click()
+        else:
+            print("未找到确认权限id")
         # 处理首页引导
         while len(self.poco(nameMatches="com.devkeep.mall:id/ic_guide.*?")) >= 1:
             gui = self.poco(nameMatches="com.devkeep.mall:id/ic_guide.*?")

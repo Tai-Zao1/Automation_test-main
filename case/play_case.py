@@ -1,6 +1,9 @@
 # -*- encoding=utf8 -*-
 __author__ = "千随"
 __title__ = "内容闯关"
+
+import threading
+
 from page.LOGIN_Page.start_page import StartAPP
 from page.LOGIN_Page.login_page import UserLogin
 from page.Game_Page.theatre_page import Theater
@@ -9,20 +12,20 @@ from tool.Generate_log import Tool
 import unittest
 import logging
 from airtest.core.api import wake
+
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
-class newtest(unittest.TestCase):
 
-    def testrun_script(devices):
+class newtest(threading.Thread):
+
+    def run_script(devices):
         """
         执行测试脚本
         :param devices:
         :return:
         """
         Tool().test1loggin(devices)
-        # connect_device("android:///" + devices)
-        # print(devices)
         wake()
         StartAPP().stopapp()
         UserLogin().test1_login("19901679570", "123456")
@@ -31,6 +34,7 @@ class newtest(unittest.TestCase):
         # 生成测试报告
         Tool().test2loggin_html()
 
+
 if __name__ == "__main__":
     from tool.phone_devices import devicestest
-    devicestest().parallel(newtest.testrun_script)
+    devicestest().parallel(newtest.run_script)

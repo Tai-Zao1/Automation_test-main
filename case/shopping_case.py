@@ -2,6 +2,7 @@
 __author__ = "孙志宇"
 __title__ = "购物流程"
 
+import threading
 import unittest
 from airtest.core.api import wake
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
@@ -18,12 +19,15 @@ logger.setLevel(logging.ERROR)
 poco = AndroidUiautomationPoco()
 
 
-class Shopping_Case(unittest.TestCase):
+class Shopping_Case(threading.Thread):
 
 
     def test1_shopping_case(devices):
-
-
+        """
+        执行测试脚本
+        :param aa:
+        :return:
+        """
         Tool().test1loggin(devices)
         # 页面截图
         wake()
@@ -49,7 +53,7 @@ class Shopping_Case(unittest.TestCase):
         Order().test2_amount()
         Order().test3_select_payment_type()
         # 生成html报告
-        # Tool().test2loggin_html()
+        Tool().test2loggin_html()
 
 
 if __name__ == "__main__":

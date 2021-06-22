@@ -1,6 +1,8 @@
 # -*- encoding=utf8 -*-
 __author__ = "孙志宇"
 __title__ = "微信支付流程"
+
+import threading
 import unittest
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 import logging
@@ -22,7 +24,7 @@ from page.TheOrder_Page.order_page import Order
 
 
 
-class wx_pay_case(unittest.TestCase):
+class wx_pay_case(threading.Thread):
 
 
     def test1_wx_pay(devices):
@@ -60,5 +62,4 @@ class wx_pay_case(unittest.TestCase):
 
 if __name__ =="__main__":
     from tool.phone_devices import devicestest
-
     devicestest().parallel(wx_pay_case.test1_wx_pay())

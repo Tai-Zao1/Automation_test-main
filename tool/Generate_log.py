@@ -17,11 +17,11 @@ path = "C:/Users/孙志宇/Desktop/Log/" + time_now
 class Tool(unittest.TestCase):
     def test1loggin(self, devices):
         global newdevices
-        newdevices = re.sub('[\/:*?"<>|\r\n]','-',devices)
+        newdevices = path+re.sub('[\/:*?"<>|\r\n]','-',devices)
         if not cli_setup():
             auto_setup(
                 __file__,
-                logdir=path+newdevices,
+                logdir=newdevices,
                 devices=[
                     "android://127.0.0.1:5037/" +
                     devices +
@@ -41,12 +41,12 @@ class Tool(unittest.TestCase):
         #     connect_device("android:///" + devicesList[i][0])
 
     def test2loggin_html(self,):
-        # connected = shell("getprop ro.product.model")
+        connected = shell("getprop ro.product.model")
         # simple_report(__file__, logpath=path + connected)
         output1 = newdevices + ".html"
         simple_report(__file__, logpath=True, output=output1)
-        os.close(newdevices)
-        os.close(output1)
+        # os.close(newdevices)
+        # os.close(output1)
 
 
 if __name__ == "__main__":
