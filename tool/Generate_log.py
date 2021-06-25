@@ -12,12 +12,14 @@ import os
 
 
 time_now = time.strftime("%Y%m%d-%H%M", time.localtime())
-path = "C:/Users/孙志宇/Desktop/Log/" + time_now
+path = "C:/Users/孙志宇/Desktop/Log/cases capture/" + time_now
+
+
 
 class Tool(unittest.TestCase):
     def test1loggin(self, devices):
         global newdevices
-        newdevices = path+re.sub('[\/:*?"<>|\r\n]','-',devices)
+        newdevices = path +"(ip=" + re.sub('[:*?"<>|\r\n]', '-', devices[10:13]+")")
         if not cli_setup():
             auto_setup(
                 __file__,
@@ -25,8 +27,13 @@ class Tool(unittest.TestCase):
                 devices=[
                     "android://127.0.0.1:5037/" +
                     devices +
-                    "?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=ADBTOUCH"]
-            )
+                    "?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=ADBTOUCH"])
+        global devices_name
+        devices_name = re.sub(
+            '[\\/:*?"<>|\r\n]',
+            '',
+            shell("getprop ro.product.model"))
+
         # connected = print(shell("getprop ro.product.model"),end="")
         # simple_report(__file__, logpath=path+connected)
         # adb = ADB()
@@ -41,9 +48,10 @@ class Tool(unittest.TestCase):
         #     connect_device("android:///" + devicesList[i][0])
 
     def test2loggin_html(self,):
-        connected = shell("getprop ro.product.model")
+        # connected = shell("getprop ro.product.model")
         # simple_report(__file__, logpath=path + connected)
-        output1 = newdevices + ".html"
+        report = "C:/Users/孙志宇/Desktop/Log/test_report/" + time_now
+        output1 = report + devices_name + ".html"
         simple_report(__file__, logpath=True, output=output1)
         # os.close(newdevices)
         # os.close(output1)

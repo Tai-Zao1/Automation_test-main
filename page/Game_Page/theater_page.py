@@ -5,7 +5,7 @@ __title__ = "游戏化内容"
 
 import time
 import unittest
-
+from  airtest.core.api import *
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
@@ -45,23 +45,6 @@ class Theater(unittest.TestCase):
                     time.sleep(3)
                 else:
                     break
-
-    # 闯关赢大奖活动
-    def test2_answer(self, answers):
-        complete = self.poco(nameMatches="完成.*?")
-        again = self.poco(nameMatches="重新挑战.*?")
-        while len(complete) != 1 and len(again) != 1:
-            answer = self.poco(nameMatches=answers + ".*?")
-            next_title = self.poco(nameMatches="下一题.*?")
-            if len(answer) != 0:
-                answer.click()
-            elif len(next_title) == 1:
-                next_title.click()
-        else:
-            if len(complete) == 1:
-                print("---------------完成答题---------------")
-            else:
-                print("---------------答题出错---------------")
 
 
 if __name__ == "__main__":

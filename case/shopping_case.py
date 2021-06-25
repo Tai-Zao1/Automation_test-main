@@ -28,32 +28,34 @@ class Shopping_Case(threading.Thread):
         :param aa:
         :return:
         """
-        Tool().test1loggin(devices)
-        # 页面截图
-        wake()
-        StartAPP().clearapp()
-        # 初始化设备
-        StartAPP().test1_start()
-        StartAPP().test2_update_app()
-        # 用户登录
-        UserLogin().test1_login("19911111111", "123456")
-        UserLogin().test2_red_envelopes()
-        # 先删除购物车所有商品
-        ShoppingCard().test_card()
-        ShoppingCard().test3_delete()
-        # 进入分类搜索上坡加入购物车
-        GoodThing().test1_classification()
-        GoodThing().test2_search_et("macbook")
-        GoodThing().test3_shoppingCard_bubble()
-        # 进入购物车页面
-        ShoppingCard().test1_add()
-        ShoppingCard().test5_pay()
-        # 进入确认订单页面
-        Order().test1_address()
-        Order().test2_amount()
-        Order().test3_select_payment_type()
-        # 生成html报告
-        Tool().test2loggin_html()
+        try:
+            Tool().test1loggin(devices)
+            # 页面截图
+            wake()
+            StartAPP().clearapp()
+            # 初始化设备
+            StartAPP().test1_start()
+            StartAPP().test2_update_app()
+            # 用户登录
+            UserLogin().test1_login("19911111111", "123456")
+            UserLogin().test2_red_envelopes()
+            # 先删除购物车所有商品
+            ShoppingCard().test_card()
+            ShoppingCard().test3_delete()
+            # 进入分类搜索上坡加入购物车
+            GoodThing().test1_classification()
+            GoodThing().test2_search_et("macbook")
+            GoodThing().test3_shoppingCard_bubble()
+            # 进入购物车页面
+            ShoppingCard().test1_add()
+            ShoppingCard().test5_pay()
+            # 进入确认订单页面
+            Order().test1_address()
+            Order().test2_amount()
+            Order().test3_select_payment_type()
+        finally:
+            # 生成html报告
+            Tool().test2loggin_html()
 
 
 if __name__ == "__main__":
