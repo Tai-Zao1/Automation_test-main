@@ -1,7 +1,7 @@
 # -*- encoding=utf8 -*-
 import logging
 __author__ = "千随"
-__title__ = "游戏化内容"
+__title__ = "闯关赢大奖页面"
 
 import time
 import unittest
