@@ -5,7 +5,7 @@ __title__ = "首页"
 
 import time
 import unittest
-from airtest.core.api import swipe
+from page.Search_Page.search_page import search_page
 from airtest.core.api import *
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
@@ -47,6 +47,40 @@ class HomePage(unittest.TestCase):
             find_2[-1].click()
         else:
             print("---------------没有找到该活动---------------")
+
+    # 关注按钮
+
+    def test2_attention(self):
+        creator_name = self.poco(
+            name="com.devkeep.mall:id/tv_author")[-1].get_text()
+        attention = self.poco(name="com.devkeep.mall:id/btn_attention")[-1]
+        if attention.get_text() == "关注":
+            attention.click()
+            print("点击关注该创作者:" + creator_name)
+        else:
+            print("按钮状态:" + attention.get_text())
+
+    # 内容评论
+
+    def test3_comment(self, name, commenttext):  # name = 活动名称，commenttext = 输入内容
+        comment_button = self.poco(textMatches=".*?" + name + ".*?")[-1] .sibling(
+            "com.devkeep.mall:id/ll_comment").offspring("com.devkeep.mall:id/et_comment")
+        while len(comment_button) != 1:
+            swipe([500, 700], [500, 300])
+        else:
+            comment_button.set_text(commenttext)
+            device().yosemite_ime.code("4")
+
+    # 搜索
+    def test4_search(self):
+        search = self.poco(name = "com.devkeep.mall:id/xTablayout").sibling(name = "android.widget.ImageView")
+        search.click()
+        return search_page
+
+    # def test5_give_like(self):
+    # 暂时无法判断是否是已点赞状态
+
+
 
 
 if __name__ == "__main__":
