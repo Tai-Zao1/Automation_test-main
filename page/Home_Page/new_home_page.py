@@ -30,6 +30,7 @@ class HomePage(unittest.TestCase):
         else:
             swipe([550, 400], [550, 1700])
             print("---------------刷新内容列表-----------------")
+        time.sleep(2)
         while len(self.poco(textMatches=Fbname)) != 1:
             swipe([500, 903], [500, 150])
             print("正在滑动找到该活动")

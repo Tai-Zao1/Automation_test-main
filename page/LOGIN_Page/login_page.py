@@ -18,15 +18,30 @@ class UserLogin(unittest.TestCase):
         self.poco = poco
 
     # 登陆
-    def test1_login(self, username, password):
+    def test1_login(self , type, username = None, password = None): #type :1 = 多线程（自动获取） ；2 =单线程（手动输入账号密码）
         time.sleep(3)
         if len(self.poco(name='com.devkeep.mall:id/login')) >= 1:
             lg = self.poco(name='com.devkeep.mall:id/login')
             lg.click()
             self.poco(text='其他号码登录').click()
             self.poco(text='密码登录').click()
-            self.poco(name='com.devkeep.mall:id/et_username').set_text(username)
-            self.poco(name='com.devkeep.mall:id/et_password').set_text(password)
+            from tool.Generate_log import devices_name
+            devicesName = devices_name
+            print("设备名称："+devicesName)
+            if type == 1 :
+                if devicesName == "MIX2":
+                    self.poco(name='com.devkeep.mall:id/et_username').set_text("19901679570")
+                    self.poco(name='com.devkeep.mall:id/et_password').set_text("123456")
+                elif devicesName == "MI5s":
+                    self.poco(name='com.devkeep.mall:id/et_username').set_text("19901234567")
+                    self.poco(name='com.devkeep.mall:id/et_password').set_text("123456")
+                else:
+                    print("无法识别手机类型")
+            elif type == 2:
+                self.poco(name='com.devkeep.mall:id/et_username').set_text(username)
+                self.poco(name='com.devkeep.mall:id/et_password').set_text(password)
+            else:
+                print("输入类型错误")
             time.sleep(0.5)
             self.poco(name='com.devkeep.mall:id/btn_login_in').click()
             print('----登陆成功----')

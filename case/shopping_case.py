@@ -25,7 +25,7 @@ class Shopping_Case(threading.Thread):
     def test1_shopping_case(devices):
         """
         执行测试脚本
-        :param aa:
+        :param devices:
         :return:
         """
         try:
@@ -37,7 +37,7 @@ class Shopping_Case(threading.Thread):
             StartAPP().test1_start()
             StartAPP().test2_update_app()
             # 用户登录
-            UserLogin().test1_login("19911111111", "123456")
+            UserLogin().test1_login(1)
             UserLogin().test2_red_envelopes()
             # 先删除购物车所有商品
             ShoppingCard().test_card()
@@ -54,7 +54,7 @@ class Shopping_Case(threading.Thread):
             Order().test2_amount()
             Order().test3_select_payment_type()
         finally:
-            # 生成html报告
+            # 生成测试报告
             Tool().test2loggin_html()
 
 

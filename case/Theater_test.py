@@ -31,7 +31,7 @@ class test_theater_play(threading.Thread):
             Tool().test1loggin(devices)
             wake()
             StartAPP().stopapp()
-            UserLogin().test1_login("19901679570","123456")
+            UserLogin().test1_login(1)
             HomePage().test1swipeFB("西游记.*",2)
             Theater().test1_theater_game("选一个你想去的地方","去ktv","就这家了，别BB，怎么去","打车去")
         finally:
