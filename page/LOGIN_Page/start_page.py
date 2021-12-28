@@ -1,10 +1,13 @@
+#!/usr/bin/python
 # -*- encoding=GBK -*-
 __author__ = "千随"
 __title__ = "打开APP并且进入首页"
-
+import os
 import sys
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
 
-sys.path.append(sys.path[0] + '\..')
 
 from airtest.core.api import *
 import unittest

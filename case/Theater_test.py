@@ -1,12 +1,14 @@
+#!/usr/bin/python
 # -*- encoding=GBK -*-
 __author__ = "千随"
 __title__ = "指间剧场"
 
 # 通用类----------------
-
+import os
 import sys
-
-sys.path.append(sys.path[0] + '\..')
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
 
 import threading
 import logging

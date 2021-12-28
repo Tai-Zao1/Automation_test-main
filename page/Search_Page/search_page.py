@@ -1,11 +1,15 @@
+#!/usr/bin/python
 # -*- encoding=GBK -*-
 import logging
 
 __author__ = "Ç§Ëæ"
 __title__ = "ËÑË÷Ò³"
-
+import os
 import sys
-sys.path.append(sys.path[0] + '\..')
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
+
 
 
 import unittest

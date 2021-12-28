@@ -1,10 +1,14 @@
+#!/usr/bin/python
 # -*- encoding=GBK -*-
 __author__ = "ÀÔ÷æ”Ó"
 __title__ = "Œ¢–≈“≥√Ê"
 
+import os
 import sys
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
 
-sys.path.append(sys.path[0] + '\..')
 
 import unittest
 
