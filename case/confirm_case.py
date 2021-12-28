@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- encoding=GBK -*-
 __author__ = "วงหๆ"
 __title__ = "ฤฺศÝดณนุ"
