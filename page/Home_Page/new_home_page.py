@@ -4,7 +4,11 @@ import logging
 __author__ = "Ç§Ëæ"
 __title__ = "Ê×Ò³"
 
-from time import  time
+import sys
+
+sys.path.append(sys.path[0] + '\..')
+
+from time import time
 import unittest
 from page.Search_Page.search_page import search_page
 from airtest.core.api import *
@@ -12,6 +16,7 @@ from airtest.core.api import *
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 time_now = time.strftime("%Y%m%d-%H%M%S", time.localtime())
+
 
 class HomePage(unittest.TestCase):
 

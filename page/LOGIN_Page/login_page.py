@@ -2,6 +2,10 @@
 __author__ = "Ç§Ëæ"
 __title__ = "µÇÂ½Á÷³Ì"
 
+import sys
+
+sys.path.append(sys.path[0] + '\..')
+
 import time
 import unittest
 
@@ -9,7 +13,6 @@ import logging
 
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
-
 
 
 class UserLogin(unittest.TestCase):

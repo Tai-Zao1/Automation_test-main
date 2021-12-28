@@ -2,13 +2,17 @@
 __author__ = "孙志宇"
 __title__ = "好物页面"
 
+import sys
+
+sys.path.append(sys.path[0] + '\..')
+
 import unittest
 
 import logging
 from page.Card_Page.shoppingcard_page import ShoppingCard
+
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
-
 
 
 class GoodThing(unittest.TestCase):

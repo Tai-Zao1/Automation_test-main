@@ -1,11 +1,17 @@
 # -*- encoding=GBK -*-
 import logging
+
 __author__ = "千随"
 __title__ = "闯关赢大奖页面"
 
+import sys
+
+sys.path.append(sys.path[0] + '\..')
+
 import time
 import unittest
-from  airtest.core.api import *
+from airtest.core.api import *
+
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
@@ -19,16 +25,16 @@ class Confirm(unittest.TestCase):
         self.poco = poco
 
     # 闯关赢大奖活动
-    def test1_confirm_answer(self, answers1,answers,answers3,answers4,answers5,answers6,answers7):
+    def test1_confirm_answer(self, answers1, answers, answers3, answers4, answers5, answers6, answers7):
         complete = self.poco(nameMatches="完成.*?")
         again = self.poco(nameMatches="重新挑战.*?")
         while len(complete) != 1 and len(again) != 1:
-            answerList = [answers1,answers,answers3,answers4,answers5,answers6,answers7]
+            answerList = [answers1, answers, answers3, answers4, answers5, answers6, answers7]
             for i in range(0, len(answerList)):
                 answer = self.poco(nameMatches=".*?" + answerList[i])
                 next_title = self.poco(nameMatches="下一题.*?")
-                if len(answer) != 1 :
-                    swipe([508,516],[508,200])
+                if len(answer) != 1:
+                    swipe([508, 516], [508, 200])
                     time.sleep(1)
                 answer.wait().click()
                 print("点击答案：" + answerList[i])
@@ -45,7 +51,3 @@ class Confirm(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
-
-

@@ -2,6 +2,10 @@
 __author__ = "ÀÔ÷æ”Ó"
 __title__ = "Œ¢–≈“≥√Ê"
 
+import sys
+
+sys.path.append(sys.path[0] + '\..')
+
 import unittest
 
 from airtest.core.api import *

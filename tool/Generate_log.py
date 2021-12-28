@@ -1,4 +1,8 @@
 # -*-coding:GBK -*-
+import sys
+sys.path.append(sys.path[0] + '\..')
+
+
 import re
 
 import yagmail

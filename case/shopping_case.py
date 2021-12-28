@@ -2,6 +2,10 @@
 __author__ = "孙志宇"
 __title__ = "购物流程"
 
+import sys
+
+sys.path.append(sys.path[0] + '\..')
+
 import threading
 import unittest
 from airtest.core.api import wake
@@ -20,7 +24,6 @@ poco = AndroidUiautomationPoco()
 
 
 class Shopping_Case(threading.Thread):
-
 
     def test1_shopping_case(devices):
         """
@@ -60,5 +63,5 @@ class Shopping_Case(threading.Thread):
 
 if __name__ == "__main__":
     from tool.phone_devices import devicestest
-    devicestest().parallel(Shopping_Case.test1_shopping_case)
 
+    devicestest().parallel(Shopping_Case.test1_shopping_case)

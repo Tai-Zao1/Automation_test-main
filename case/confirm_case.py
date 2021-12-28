@@ -3,11 +3,8 @@ __author__ = "Ç§Ëæ"
 __title__ = "ÄÚÈÝ´³¹Ø"
 
 import sys
-import os
-curPath = os.path.abspath(os.path.dirname(__file__))
-rootPath = os.path.split(curPath)[0]
-sys.path.append(rootPath)
 
+sys.path.append(sys.path[0] + '\..')
 
 import threading
 
@@ -20,7 +17,6 @@ from tool.Generate_log import Tool
 import unittest
 import logging
 from airtest.core.api import wake
-
 
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)

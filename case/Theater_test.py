@@ -3,12 +3,16 @@ __author__ = "千随"
 __title__ = "指间剧场"
 
 # 通用类----------------
-import threading
 
-import pytest
+import sys
+
+sys.path.append(sys.path[0] + '\..')
+
+import threading
 import logging
 from airtest.core.api import wake
 from tool.Generate_log import Tool
+
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
@@ -32,14 +36,14 @@ class test_theater_play(threading.Thread):
             wake()
             StartAPP().stopapp()
             UserLogin().test1_login(1)
-            HomePage().test1swipeFB("西游记.*",2)
-            Theater().test1_theater_game("选一个你想去的地方","去ktv","就这家了，别BB，怎么去","打车去")
+            HomePage().test1swipeFB("西游记.*", 2)
+            Theater().test1_theater_game("选一个你想去的地方", "去ktv", "就这家了，别BB，怎么去", "打车去")
         finally:
             # 生成测试报告
             Tool().test2loggin_html()
 
 
-
 if __name__ == "__main__":
     from tool.phone_devices import devicestest
+
     devicestest().parallel(test_theater_play.test_theater)

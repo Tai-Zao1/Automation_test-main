@@ -1,4 +1,9 @@
 # -*-coding:GBK -*-
+
+import sys
+
+sys.path.append(sys.path[0] + '\..')
+
 from multiprocessing.context import Process
 import unittest
 from airtest.core.android.adb import ADB

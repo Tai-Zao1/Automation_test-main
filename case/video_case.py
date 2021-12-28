@@ -2,8 +2,11 @@
 __author__ = "Ç§Ëæ"
 __title__ = "¶ÌÊÓÆµ´ðÌâ"
 
-import threading
+import sys
 
+sys.path.append(sys.path[0] + '\..')
+
+import threading
 
 from page.LOGIN_Page.start_page import StartAPP
 from page.LOGIN_Page.login_page import UserLogin
@@ -40,4 +43,5 @@ class newtest(threading.Thread):
 
 if __name__ == "__main__":
     from tool.phone_devices import devicestest
+
     devicestest().parallel(newtest.run_script)

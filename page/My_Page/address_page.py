@@ -2,6 +2,10 @@
 __author__ = "孙志宇"
 __title__ = "收货地址页面"
 
+import sys
+sys.path.append(sys.path[0] + '\..')
+
+
 import unittest
 
 import logging

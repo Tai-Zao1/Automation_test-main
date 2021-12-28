@@ -1,6 +1,11 @@
 # -*- encoding=GBK -*-
-__author__ = "孙志宇"
+__author__ = "孙志�?"
 __title__ = "确认订单页面"
+
+
+import sys
+sys.path.append(sys.path[0] + '\..')
+
 
 import unittest
 
@@ -24,9 +29,9 @@ class Order(unittest.TestCase):
     def test1_address(self):
         if len(self.poco(name="com.devkeep.mall:id/tv_add_address")) == 1:
             self.poco(name="com.devkeep.mall:id/tv_add_address").click()
-            Address().test1_new_address('王大锤', '19901679570', '人民路')
+            Address().test1_new_address('王大�?', '19901679570', '人民�?')
         else:
-            print('----已经有收货地址----')
+            print('----已经有收货地�?----')
 
     # 获取实付金额
     def test2_amount(self):
@@ -35,7 +40,7 @@ class Order(unittest.TestCase):
             .child("com.devkeep.mall:id/rl_bottom") \
             .offspring("com.devkeep.mall:id/tv_total_amount")
 
-    # 确认支付使用非微信、支付宝支付
+    # 确认支付使用非微信�?�支付宝支付
     def test3_select_payment_type(self):
         # 判断是否有支付金
         aa = str(self.poco("com.devkeep.mall:id/tv_payment").exists())
@@ -43,7 +48,7 @@ class Order(unittest.TestCase):
             self.poco(name="com.devkeep.mall:id/sb_payment").click()
             tv_paymen = self.poco(name="com.devkeep.mall:id/tv_payment").get_text()
             Order().test2_amount()
-            print("----选择支付金支付,支付金额=", tv_paymen, "剩余应付金额 =", total_amount.get_text(), "----")
+            print("----选择支付金支�?,支付金额=", tv_paymen, "剩余应付金额 =", total_amount.get_text(), "----")
         else:
             print("----没有支付金或者实付金额为0----")
         # 判断是否有互动奖金且合计金额大于0
@@ -54,7 +59,7 @@ class Order(unittest.TestCase):
             Order().test2_amount()
             print("----选择互动奖金支付,支付金额=", tv_interactive_amount, "剩余应付金额 =", total_amount.get_text(), "----")
         else:
-            print("----没有互动奖金或者实付金额为0----")
+            print("----没有互动奖金或�?�实付金额为0----")
         # 判断是否有余额且合计金额大于0
         cc = self.poco(name="com.devkeep.mall:id/tv_balance_deduction")
         if str(cc) == "True":
@@ -63,17 +68,17 @@ class Order(unittest.TestCase):
             Order().test2_amount()
             print("----选择余额支付,支付金额=", tv_balance_deduction, "剩余应付金额 =", total_amount.get_text(), "----")
         else:
-            print('----没有余额或者实付金额为0----')
-        # 判断抵扣完应付金额是否大于0
+            print('----没有余额或�?�实付金额为0----')
+        # 判断抵扣完应付金额是否大�?0
         Order().test2_amount()
         if total_amount.get_text() != "¥ 0.00":
-            print("----没有钱了，剩余应付金额", total_amount.get_text(), "----")
+            print("----没有钱了，剩余应付金�?", total_amount.get_text(), "----")
         else:
             print("----已经全部抵扣----")
             self.poco(name="com.devkeep.mall:id/btn_pay").click()
             print("----进入支付成功页面----")
 
-    # 点击进入第一个店铺详情
+    # 点击进入第一个店铺详�?
     def test4_supplier(self):
         self.poco(name="com.devkeep.mall:id/rl_supplier")[0].click()
 
@@ -92,9 +97,9 @@ if __name__ == "__main__":
     def test1_address(self):
         if len(self.poco(name="com.devkeep.mall:id/tv_add_address")) == 1:
             self.poco(name="com.devkeep.mall:id/tv_add_address").click()
-            Address().test1_new_address('王大锤', '19901679570', '人民路')
+            Address().test1_new_address('王大�?', '19901679570', '人民�?')
         else:
-            print('----已经有收货地址----')
+            print('----已经有收货地�?----')
 
 
     # 获取实付金额
@@ -105,7 +110,7 @@ if __name__ == "__main__":
             .offspring("com.devkeep.mall:id/tv_total_amount")
 
 
-    # 确认支付使用非微信、支付宝支付
+    # 确认支付使用非微信�?�支付宝支付
     def test3_select_payment_type(self):
         # 判断是否有支付金
         aa = str(self.poco("com.devkeep.mall:id/tv_payment").exists())
@@ -113,7 +118,7 @@ if __name__ == "__main__":
             self.poco(name="com.devkeep.mall:id/sb_payment").click()
             tv_paymen = self.poco(name="com.devkeep.mall:id/tv_payment").get_text()
             Order().test2_amount()
-            print("----选择支付金支付,支付金额=", tv_paymen, "剩余应付金额 =", total_amount.get_text(), "----")
+            print("----选择支付金支�?,支付金额=", tv_paymen, "剩余应付金额 =", total_amount.get_text(), "----")
         else:
             print("----没有支付金或者实付金额为0----")
         # 判断是否有互动奖金且合计金额大于0
@@ -124,7 +129,7 @@ if __name__ == "__main__":
             Order().test2_amount()
             print("----选择互动奖金支付,支付金额=", tv_interactive_amount, "剩余应付金额 =", total_amount.get_text(), "----")
         else:
-            print("----没有互动奖金或者实付金额为0----")
+            print("----没有互动奖金或�?�实付金额为0----")
         # 判断是否有余额且合计金额大于0
         cc = self.poco(name="com.devkeep.mall:id/tv_balance_deduction")
         if len(cc) == 1:
@@ -134,20 +139,20 @@ if __name__ == "__main__":
                 Order().test2_amount()
                 print("----选择余额支付,支付金额=", tv_balance_deduction, "剩余应付金额 =", total_amount.get_text(), "----")
             else:
-                print('----没有余额或者实付金额为0----')
+                print('----没有余额或�?�实付金额为0----')
         else:
             return
-        # 判断抵扣完应付金额是否大于0
+        # 判断抵扣完应付金额是否大�?0
         Order().test2_amount()
         if total_amount.get_text() != "¥ 0.00":
-            print("----没有钱了，剩余应付金额", total_amount.get_text(), "----")
+            print("----没有钱了，剩余应付金�?", total_amount.get_text(), "----")
         else:
             print("----已经全部抵扣----")
             self.poco(name="com.devkeep.mall:id/btn_pay").click()
             print("----进入支付成功页面----")
 
 
-    # 点击进入第一个店铺详情
+    # 点击进入第一个店铺详�?
     def test4_supplier(self):
         self.poco(name="com.devkeep.mall:id/rl_supplier")[0].click()
 

@@ -2,6 +2,10 @@
 __author__ = "孙志宇"
 __title__ = "购物车列表"
 
+import sys
+
+sys.path.append(sys.path[0] + '\..')
+
 from airtest.core.api import *
 import unittest
 
@@ -10,8 +14,6 @@ import logging
 
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
-
-
 
 
 class ShoppingCard(unittest.TestCase):
@@ -49,9 +51,9 @@ class ShoppingCard(unittest.TestCase):
         while len(self.poco(name="com.devkeep.mall:id/cart_item_rv")) >= 1:
             productName = self.poco(name='com.devkeep.mall:id/des')[0].get_text()
             # self.poco.swipe([0.8, 0.22], [0.3, 0.22])  # 第一个商品的坐标比例
-            cart_item_position = self.poco(name = "com.devkeep.mall:id/cart_item_rv")[0].get_position()
-            x,y = cart_item_position[0],cart_item_position[1]
-            self.poco.swipe([x,y],[x-0.4,y])
+            cart_item_position = self.poco(name="com.devkeep.mall:id/cart_item_rv")[0].get_position()
+            x, y = cart_item_position[0], cart_item_position[1]
+            self.poco.swipe([x, y], [x - 0.4, y])
             time.sleep(0.5)
             # aa = self.poco("com.devkeep.mall:id/delete")[0].exists()
             # print(aa)
@@ -59,11 +61,9 @@ class ShoppingCard(unittest.TestCase):
             self.poco(name="com.devkeep.mall:id/delete")[0].click()
             time.sleep(0.5)
             self.poco(name="com.devkeep.mall:id/confirm").click()
-            print("删除购物车商品",productName)
+            print("删除购物车商品", productName)
         else:
             print("----购物车没有商品或者全部已删除----")
-
-
 
     # 点击去逛逛
     def test4_goshopping(self):

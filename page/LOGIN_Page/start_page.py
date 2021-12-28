@@ -2,12 +2,17 @@
 __author__ = "千随"
 __title__ = "打开APP并且进入首页"
 
+import sys
+
+sys.path.append(sys.path[0] + '\..')
+
 from airtest.core.api import *
 import unittest
 
-# import logging
-# logger = logging.getLogger("airtest")
-# logger.setLevel(logging.ERROR)
+import logging
+
+logger = logging.getLogger("airtest")
+logger.setLevel(logging.ERROR)
 
 
 # noinspection PyTypeChecker
@@ -24,7 +29,7 @@ class StartAPP(unittest.TestCase):
         start_app("com.devkeep.mall")
         time.sleep(2)
 
-    #终止目标应用在设备上的运行
+    # 终止目标应用在设备上的运行
     def stopapp(self):
         stop_app("com.devkeep.mall")
         start_app("com.devkeep.mall")
@@ -44,8 +49,8 @@ class StartAPP(unittest.TestCase):
         # 点击进入按钮
         # self.poco(name='com.devkeep.mall:id/btn_enter').click()
         # 确认系统权限
-        MI_5s = self.poco(name= "android:id/button1")
-        MIX2 =  self.poco(nameMatches='.*?permission_allow_button')
+        MI_5s = self.poco(name="android:id/button1")
+        MIX2 = self.poco(nameMatches='.*?permission_allow_button')
         if len(MI_5s) == 1:
             MI_5s.click()
         elif len(MIX2) == 1:

@@ -1,11 +1,15 @@
 # -*- encoding=GBK -*-
 import logging
+
 __author__ = "千随"
 __title__ = "指间剧场页面"
 
-import time
+import sys
+sys.path.append(sys.path[0] + '\..')
+
 import unittest
-from  airtest.core.api import *
+from airtest.core.api import *
+
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 

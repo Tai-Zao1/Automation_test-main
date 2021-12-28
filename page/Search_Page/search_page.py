@@ -4,6 +4,10 @@ import logging
 __author__ = "Ç§Ëæ"
 __title__ = "ËÑË÷Ò³"
 
+import sys
+sys.path.append(sys.path[0] + '\..')
+
+
 import unittest
 from airtest.core.api import *
 
