@@ -1,14 +1,13 @@
 # -*- encoding=GBK -*-
 __author__ = "千随"
 __title__ = "内容闯关"
-
+import os
 import sys
-
-sys.path.append(sys.path[0] + '\case')
-print(sys.path)
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
 
 import threading
-
 from page.LOGIN_Page.start_page import StartAPP
 from page.LOGIN_Page.login_page import UserLogin
 from page.Game_Page.confirm_page import Confirm
