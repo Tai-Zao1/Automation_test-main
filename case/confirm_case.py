@@ -4,7 +4,8 @@ __title__ = "ÄÚÈİ´³¹Ø"
 
 import sys
 
-sys.path.append(sys.path[0] + '\..')
+sys.path.append(sys.path[0] + '\case')
+print(sys.path)
 
 import threading
 
